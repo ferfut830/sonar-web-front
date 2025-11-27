@@ -1,4 +1,7 @@
-import Link from 'next/link';
+'use client';
+
+import { openWhatsApp, whatsappMessages } from '@/utils/whatsapp';
+import Image from 'next/image';
 
 export default function FreeTrialSection() {
   return (
@@ -13,20 +16,22 @@ export default function FreeTrialSection() {
             <p className="text-lg text-gray-700 mb-8 leading-relaxed">
               Sabemos que dar el primer paso no siempre es fácil. Por eso, queremos acompañarte desde el inicio con una sesión gratuita de 60 minutos. Un espacio seguro para que te escuches, respires y descubras si este camino puede ser el comienzo del cambio que estás buscando.
             </p>
-            <Link
-              href="/reservar"
-              className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-bold text-lg transition-colors"
+            <button
+              onClick={() => openWhatsApp(whatsappMessages.pruebaGratis)}
+              className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
             >
               ¡QUIERO MI PRUEBA GRATIS!
-            </Link>
+            </button>
           </div>
 
-          {/* Illustration */}
+          {/* Illustration con imagen placeholder */}
           <div className="relative">
-            <div className="bg-gradient-to-br from-blue-100 to-blue-200 rounded-2xl p-8 h-96 flex items-center justify-center">
-              <div className="text-center">
+            <div className="bg-gradient-to-br from-blue-100 to-blue-200 rounded-2xl p-8 h-96 flex items-center justify-center overflow-hidden relative">
+              {/* Imagen placeholder - reemplazar con imagen real */}
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-blue-600/20" />
+              <div className="text-center relative z-10">
                 <svg
-                  className="w-32 h-32 mx-auto text-blue-600 mb-4"
+                  className="w-32 h-32 mx-auto text-blue-600 mb-4 animate-pulse"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -39,6 +44,7 @@ export default function FreeTrialSection() {
                   />
                 </svg>
                 <p className="text-blue-800 font-semibold text-lg">Sesión de 60 minutos</p>
+                <p className="text-blue-700 text-sm mt-2">Imagen: Profesional atendiendo paciente</p>
               </div>
             </div>
           </div>
@@ -47,5 +53,3 @@ export default function FreeTrialSection() {
     </section>
   );
 }
-
-

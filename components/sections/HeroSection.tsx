@@ -1,4 +1,6 @@
-import Link from 'next/link';
+'use client';
+
+import { openWhatsApp, whatsappMessages } from '@/utils/whatsapp';
 
 export default function HeroSection() {
   return (
@@ -8,17 +10,15 @@ export default function HeroSection() {
           Empieza Hoy, Primera Sesión Gratis
         </h1>
         <p className="text-xl sm:text-2xl mb-8 text-blue-100 max-w-3xl mx-auto">
-          Descubre el camino hacia tu bienestar emocional ahora mismo
+          Un centro integral donde la música se une con la salud física y emocional para crear una experiencia de bienestar real.
         </p>
-        <Link
-          href="/reservar"
-          className="inline-block bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition-colors"
+        <button
+          onClick={() => openWhatsApp(whatsappMessages.pruebaGratis)}
+          className="inline-block bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
         >
           EMPEZAR AHORA!
-        </Link>
+        </button>
       </div>
     </section>
   );
 }
-
-

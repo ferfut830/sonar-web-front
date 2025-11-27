@@ -13,7 +13,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://sonar.com'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://sonar-web-nine.vercel.app'),
   title: {
     default: "SONAR - Tu Bienestar en Sintonía | Musicoterapia y Psicología",
     template: "%s | SONAR"
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "SONAR - Tu Bienestar en Sintonía",
     description: "Cuidamos tu salud emocional a través de la escucha y la música.",
-    images: ["/og-image.jpg"],
+    images: [`${process.env.NEXT_PUBLIC_SITE_URL || 'https://sonar-web-nine.vercel.app'}/og-image.jpg`],
   },
   robots: {
     index: true,
@@ -94,7 +94,11 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
-        <link rel="canonical" href={process.env.NEXT_PUBLIC_SITE_URL || 'https://sonar.com'} />
+        <link rel="canonical" href={process.env.NEXT_PUBLIC_SITE_URL || 'https://sonar-web-nine.vercel.app'} />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
       </head>
       <body className={`${inter.variable} antialiased font-sans`}>
         <StructuredData />

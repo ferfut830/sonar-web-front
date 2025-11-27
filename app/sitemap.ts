@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { categories } from '@/constants/categories';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://sonar.com';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://sonar-web-nine.vercel.app';
 
   // Rutas estáticas principales
   const staticRoutes: MetadataRoute.Sitemap = [
@@ -29,12 +29,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/reservar`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.9,
     },
   ];
 

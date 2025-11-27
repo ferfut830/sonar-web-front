@@ -11,29 +11,15 @@ export default function Footer() {
               <div className="relative w-16 h-16 flex items-center justify-center">
                 <svg
                   className="w-16 h-16 text-white"
-                  viewBox="0 0 100 100"
+                  viewBox="0 0 200 200"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <circle cx="50" cy="50" r="40" stroke="currentColor" strokeWidth="3" fill="none" />
+                  <circle cx="100" cy="100" r="80" stroke="currentColor" strokeWidth="4" fill="none" />
                   <path
-                    d="M30 50 Q40 30 50 50 T70 50"
+                    d="M60 100 L70 60 L80 140 L90 40 L100 160 L110 50 L120 150 L130 70 L140 130"
                     stroke="currentColor"
-                    strokeWidth="3"
-                    fill="none"
-                    strokeLinecap="round"
-                  />
-                  <path
-                    d="M20 50 Q25 40 30 50"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    fill="none"
-                    strokeLinecap="round"
-                  />
-                  <path
-                    d="M70 50 Q75 40 80 50"
-                    stroke="currentColor"
-                    strokeWidth="2"
+                    strokeWidth="4"
                     fill="none"
                     strokeLinecap="round"
                   />

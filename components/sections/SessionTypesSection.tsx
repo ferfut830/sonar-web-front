@@ -1,7 +1,7 @@
 'use client';
 
-import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import { openWhatsApp, whatsappMessages } from '@/utils/whatsapp';
 
 export default function SessionTypesSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -12,7 +12,7 @@ export default function SessionTypesSection() {
 
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
-      {/* Subtle wave separator - más sutil y con contexto */}
+      {/* Subtle wave separator */}
       <div className="absolute top-0 left-0 right-0 h-24 overflow-hidden">
         <svg
           viewBox="0 0 1440 120"
@@ -38,8 +38,9 @@ export default function SessionTypesSection() {
       <div className="container mx-auto pt-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {/* Presencial */}
-          <div
-            className={`group bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 ${
+          <button
+            onClick={() => openWhatsApp(whatsappMessages.sesionPresencial)}
+            className={`group bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 text-left ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
             style={{
@@ -73,17 +74,15 @@ export default function SessionTypesSection() {
                 </svg>
               </div>
             </div>
-            <Link
-              href="/reservar?tipo=presencial"
-              className="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105"
-            >
+            <div className="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105">
               RESERVAR SESIÓN
-            </Link>
-          </div>
+            </div>
+          </button>
 
           {/* Virtual */}
-          <div
-            className={`group bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 ${
+          <button
+            onClick={() => openWhatsApp(whatsappMessages.sesionVirtual)}
+            className={`group bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 text-left ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
             style={{
@@ -111,13 +110,10 @@ export default function SessionTypesSection() {
                 </svg>
               </div>
             </div>
-            <Link
-              href="/reservar?tipo=virtual"
-              className="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105"
-            >
+            <div className="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105">
               RESERVAR SESIÓN
-            </Link>
-          </div>
+            </div>
+          </button>
         </div>
       </div>
 
@@ -136,4 +132,3 @@ export default function SessionTypesSection() {
     </section>
   );
 }
-

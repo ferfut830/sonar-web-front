@@ -4,8 +4,9 @@ export default function StructuredData() {
     "@type": "Organization",
     "name": "SONAR",
     "alternateName": "SONAR - Tu Bienestar en Sintonía",
-    "url": process.env.NEXT_PUBLIC_SITE_URL || "https://sonar.com",
-    "logo": `${process.env.NEXT_PUBLIC_SITE_URL || "https://sonar.com"}/logo.png`,
+    "url": process.env.NEXT_PUBLIC_SITE_URL || "https://sonar-web-nine.vercel.app",
+    "logo": `${process.env.NEXT_PUBLIC_SITE_URL || "https://sonar-web-nine.vercel.app"}/logo.png`,
+    "image": `${process.env.NEXT_PUBLIC_SITE_URL || "https://sonar-web-nine.vercel.app"}/logo.png`,
     "description": "Cuidamos tu salud emocional a través de la escucha y la música. Servicios de psicología, arte, canto y salud.",
     "sameAs": [
       // Añadir redes sociales cuando estén disponibles

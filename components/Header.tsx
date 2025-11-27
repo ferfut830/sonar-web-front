@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
+import { openWhatsApp, whatsappMessages } from '@/utils/whatsapp';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,35 +19,23 @@ export default function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md" role="banner">
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8" aria-label="Navegación principal">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
+          {/* Logo - Basado en la imagen del logo real */}
           <Link href="/" className="flex items-center space-x-3" aria-label="SONAR - Ir a inicio">
             <div className="relative w-16 h-16 flex items-center justify-center">
-              {/* Logo icon - sound wave circle */}
+              {/* Logo icon - círculo con onda sonora central y ondas laterales */}
               <svg
                 className="w-16 h-16 text-blue-900"
-                viewBox="0 0 100 100"
+                viewBox="0 0 200 200"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <circle cx="50" cy="50" r="40" stroke="currentColor" strokeWidth="3" fill="none" />
+                {/* Círculo principal */}
+                <circle cx="100" cy="100" r="80" stroke="currentColor" strokeWidth="4" fill="none" />
+                {/* Onda sonora central (forma de igualador) */}
                 <path
-                  d="M30 50 Q40 30 50 50 T70 50"
+                  d="M60 100 L70 60 L80 140 L90 40 L100 160 L110 50 L120 150 L130 70 L140 130"
                   stroke="currentColor"
-                  strokeWidth="3"
-                  fill="none"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M20 50 Q25 40 30 50"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  fill="none"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M70 50 Q75 40 80 50"
-                  stroke="currentColor"
-                  strokeWidth="2"
+                  strokeWidth="4"
                   fill="none"
                   strokeLinecap="round"
                 />
@@ -73,12 +62,12 @@ export default function Header() {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Link
-              href="/reservar"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+            <button
+              onClick={() => openWhatsApp(whatsappMessages.pruebaGratis)}
+              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105"
             >
               EMPEZAR AHORA!
-            </Link>
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -126,13 +115,15 @@ export default function Header() {
                   {link.label}
                 </Link>
               ))}
-              <Link
-                href="/reservar"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold text-center transition-colors"
-                onClick={() => setIsMenuOpen(false)}
+              <button
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  openWhatsApp(whatsappMessages.pruebaGratis);
+                }}
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold text-center transition-all duration-300 hover:scale-105"
               >
                 EMPEZAR AHORA!
-              </Link>
+              </button>
             </nav>
           </div>
         )}

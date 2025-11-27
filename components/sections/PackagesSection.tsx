@@ -1,8 +1,8 @@
 'use client';
 
-import Link from 'next/link';
 import { packages } from '@/constants/packages';
 import { useState, useEffect } from 'react';
+import { openWhatsApp, whatsappMessages } from '@/utils/whatsapp';
 
 export default function PackagesSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -30,6 +30,16 @@ export default function PackagesSection() {
       }
     };
   }, []);
+
+  const handlePackageClick = (pkgId: string) => {
+    if (pkgId === 'a') {
+      openWhatsApp(whatsappMessages.paqueteA);
+    } else if (pkgId === 'b') {
+      openWhatsApp(whatsappMessages.paqueteB);
+    } else if (pkgId === 'c') {
+      openWhatsApp(whatsappMessages.paqueteC);
+    }
+  };
 
   return (
     <section id="packages-section" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
@@ -84,8 +94,8 @@ export default function PackagesSection() {
                   </li>
                 ))}
               </ul>
-              <Link
-                href={`/reservar?paquete=${pkg.id}`}
+              <button
+                onClick={() => handlePackageClick(pkg.id)}
                 className={`block w-full text-center py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 ${
                   pkg.highlighted
                     ? 'bg-blue-800 hover:bg-blue-900 text-white'
@@ -93,7 +103,7 @@ export default function PackagesSection() {
                 }`}
               >
                 RESERVAR {pkg.name}
-              </Link>
+              </button>
             </div>
           ))}
         </div>
@@ -114,4 +124,3 @@ export default function PackagesSection() {
     </section>
   );
 }
-
