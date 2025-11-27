@@ -1,7 +1,18 @@
 import Link from 'next/link';
 import { categories } from '@/constants/categories';
+import type { Metadata } from 'next';
 
 const category = categories.find((c) => c.id === 'psicologia')!;
+
+export const metadata: Metadata = {
+  title: 'SONAR PSICOLOGÍA - Terapia Psicológica y Musicoterapia',
+  description: 'Cuidamos tu salud emocional a través de la escucha y la música. Terapia psicológica individual, de pareja y familiar. Canto terapia y programas de manejo de ansiedad.',
+  keywords: ['psicología', 'terapia psicológica', 'terapia de pareja', 'terapia familiar', 'canto terapia', 'ansiedad', 'salud emocional'],
+  openGraph: {
+    title: 'SONAR PSICOLOGÍA - Terapia Psicológica y Musicoterapia',
+    description: 'Cuidamos tu salud emocional a través de la escucha y la música.',
+  },
+};
 
 export default function PsicologiaPage() {
   return (
@@ -25,9 +36,9 @@ export default function PsicologiaPage() {
               href={`/psicologia/${service.id}`}
               className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-all hover:-translate-y-2 group"
             >
-              <h3 className="text-2xl font-bold text-blue-900 mb-4 group-hover:text-blue-600 transition-colors">
+              <h2 className="text-2xl font-bold text-blue-900 mb-4 group-hover:text-blue-600 transition-colors">
                 {service.title}
-              </h3>
+              </h2>
               <p className="text-gray-600 mb-4">{service.description}</p>
               <div className="flex justify-end">
                 <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center group-hover:bg-blue-200 transition-colors">
@@ -53,5 +64,3 @@ export default function PsicologiaPage() {
     </div>
   );
 }
-
-

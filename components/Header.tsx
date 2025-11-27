@@ -15,11 +15,11 @@ export default function Header() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md" role="banner">
+      <nav className="container mx-auto px-4 sm:px-6 lg:px-8" aria-label="Navegación principal">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3">
+          <Link href="/" className="flex items-center space-x-3" aria-label="SONAR - Ir a inicio">
             <div className="relative w-16 h-16 flex items-center justify-center">
               {/* Logo icon - sound wave circle */}
               <svg
@@ -59,7 +59,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-8" aria-label="Menú de navegación">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -115,7 +115,7 @@ export default function Header() {
         {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="md:hidden pb-4 border-t border-gray-200 mt-4">
-            <nav className="flex flex-col space-y-4 pt-4">
+            <nav className="flex flex-col space-y-4 pt-4" aria-label="Menú móvil">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
@@ -136,7 +136,7 @@ export default function Header() {
             </nav>
           </div>
         )}
-      </div>
+      </nav>
     </header>
   );
 }
